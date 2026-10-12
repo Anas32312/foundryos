@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: foundry
+      POSTGRES_PASSWORD: foundry
+      POSTGRES_DB: foundryos
+    ports:
+      - "54329:5432"
+    volumes:
+      - foundryos_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U foundry -d foundryos"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  foundryos_pg:

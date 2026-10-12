@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "generate-tests",
+  "name": "Generate Tests",
+  "version": "1.0.0",
+  "description": "Adds a small test that the marketing page renders its title and main regions.",
+  "publisher": "foundryos",
+  "license": "MIT",
+  "compatibility": { "frameworks": ["nextjs"] },
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "siteName": { "type": "string", "description": "Expected visible title." }
+    },
+    "required": ["siteName"]
+  },
+  "permissions": {
+    "filesystem": {
+      "read": ["app/page.tsx", "package.json"],
+      "write": ["package.json", "tests/**"]
+    },
+    "network": []
+  },
+  "sideEffects": { "external": false },
+  "execution": { "mode": "instructions", "timeoutSeconds": 180 },
+  "validation": { "commands": ["npm test", "npm run build"] }
+}

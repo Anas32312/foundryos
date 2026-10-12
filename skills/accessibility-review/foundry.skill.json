@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "accessibility-review",
+  "name": "Accessibility Review",
+  "version": "1.0.0",
+  "description": "Reviews the marketing page for names, headings, contrast, and keyboard focus.",
+  "publisher": "foundryos",
+  "license": "MIT",
+  "compatibility": { "frameworks": ["nextjs"] },
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "notes": { "type": "string", "description": "Optional focus, such as the contact region." }
+    },
+    "required": []
+  },
+  "permissions": {
+    "filesystem": {
+      "read": ["app/**", "site.config.json"],
+      "write": ["app/**"]
+    },
+    "network": []
+  },
+  "sideEffects": { "external": false },
+  "execution": { "mode": "instructions", "timeoutSeconds": 120 },
+  "validation": { "commands": ["npm run lint", "npm run build"] }
+}

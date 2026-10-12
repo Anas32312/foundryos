@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "create-landing-page",
+  "name": "Create Landing Page",
+  "version": "1.0.0",
+  "description": "Rewrites the marketing page around one offer, three proof points, and one next step.",
+  "publisher": "foundryos",
+  "license": "MIT",
+  "compatibility": { "frameworks": ["nextjs"] },
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "offer": { "type": "string", "description": "The one sentence a stranger should remember." },
+      "proof": { "type": "string", "description": "Three proof points, separated by blank lines." },
+      "nextStep": { "type": "string", "description": "The single action, including the email or URL." }
+    },
+    "required": ["offer", "nextStep"]
+  },
+  "permissions": {
+    "filesystem": {
+      "read": ["app/**", "site.config.json"],
+      "write": ["app/page.tsx", "site.config.json"]
+    },
+    "network": []
+  },
+  "sideEffects": { "external": false },
+  "execution": { "mode": "instructions", "timeoutSeconds": 120 },
+  "validation": { "commands": ["npm run lint", "npm run build"] }
+}

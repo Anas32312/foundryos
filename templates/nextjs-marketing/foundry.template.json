@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "nextjs-marketing",
+  "name": "Next.js Marketing Website",
+  "version": "1.0.0",
+  "description": "Accessible, responsive marketing site starter.",
+  "framework": "nextjs",
+  "language": "typescript",
+  "features": ["responsive-layout", "seo-basics"],
+  "requiredEnvironmentVariables": [],
+  "permissions": [],
+  "entrypoint": "app/page.tsx",
+  "license": "MIT"
+}

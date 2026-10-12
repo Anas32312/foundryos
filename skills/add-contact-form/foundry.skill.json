@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "add-contact-form",
+  "name": "Add Contact Form",
+  "version": "1.0.0",
+  "description": "Replaces the email link with a static form that opens the visitor's mail client.",
+  "publisher": "foundryos",
+  "license": "MIT",
+  "compatibility": { "frameworks": ["nextjs"] },
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "email": { "type": "string", "description": "Address that receives the message." }
+    },
+    "required": ["email"]
+  },
+  "permissions": {
+    "filesystem": {
+      "read": ["app/page.tsx"],
+      "write": ["app/page.tsx"]
+    },
+    "network": []
+  },
+  "sideEffects": { "external": false },
+  "execution": { "mode": "instructions", "timeoutSeconds": 120 },
+  "validation": { "commands": ["npm run lint", "npm run build"] }
+}

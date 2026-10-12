@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "add-seo-basics",
+  "name": "Add SEO Basics",
+  "version": "1.0.0",
+  "description": "Checks title, description, canonical URL, robots, and sitemap on a Next.js site.",
+  "publisher": "foundryos",
+  "license": "MIT",
+  "compatibility": { "frameworks": ["nextjs"] },
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "siteName": { "type": "string", "description": "Name used in the document title." },
+      "description": { "type": "string", "description": "Meta description, one or two sentences." }
+    },
+    "required": ["siteName"]
+  },
+  "permissions": {
+    "filesystem": {
+      "read": ["app/**", "site.config.json"],
+      "write": ["app/layout.tsx", "app/robots.ts", "app/sitemap.ts", "site.config.json"]
+    },
+    "network": []
+  },
+  "sideEffects": { "external": false },
+  "execution": { "mode": "instructions", "timeoutSeconds": 120 },
+  "validation": { "commands": ["npm run lint", "npm run build"] }
+}

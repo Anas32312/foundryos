@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "release-checklist",
+  "name": "Release Checklist",
+  "version": "1.0.0",
+  "description": "Checks the generated site is ready to push: config, ignore rules, and a production build.",
+  "publisher": "foundryos",
+  "license": "MIT",
+  "compatibility": { "frameworks": ["nextjs"] },
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "url": { "type": "string", "description": "Public origin the site will use." }
+    },
+    "required": ["url"]
+  },
+  "permissions": {
+    "filesystem": {
+      "read": ["**"],
+      "write": ["site.config.json", "README.md"]
+    },
+    "network": []
+  },
+  "sideEffects": { "external": false },
+  "execution": { "mode": "instructions", "timeoutSeconds": 180 },
+  "validation": { "commands": ["npm run lint", "npm run build"] }
+}
